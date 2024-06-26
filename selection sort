@@ -1,0 +1,27 @@
+public:
+    int select(int arr[], int n)
+    {
+        // code here such that selectionSort() sorts arr[]
+        
+        
+        for(int k =0; k<n; k++){
+            int min = k;
+            
+            
+            for(int j = k+1; j<n; j++){
+                if(arr[min] > arr[j]){
+                    min = j;
+                }
+            }
+            
+            if(min != k){
+                swap(arr[min], arr[k]);
+            }
+        }
+    }
+     
+    void selectionSort(int arr[], int n)
+    {
+       //code here
+       select(arr,n);
+    }
