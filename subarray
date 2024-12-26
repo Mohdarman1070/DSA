@@ -1,0 +1,40 @@
+ tc: n2
+
+
+ #include<iostream>
+#include<vector>
+using namespace std;
+vector<int> subarray(const vector<int> &arr, int target){
+    int n = arr.size();
+    vector<int> res;
+    
+    for(int i =0; i<n; i++){
+        int curr = 0;
+
+       for (int j =i; j<n; j++){
+            curr += arr[j];
+
+            if(curr == target){
+                res.push_back(i+1);
+                res.push_back(j+1);
+                return res;
+
+            }
+
+        }
+
+
+
+    }
+    return {-1};
+}
+int main(){
+    vector<int> arr = {15,2,4,8,9,10,23};
+    int target = 23;
+   vector<int> output = subarray(arr, target);
+
+   for(auto i : output){
+    cout<<i<<" ";
+   }
+
+}
