@@ -1,0 +1,52 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+int missing(const vector<int> &arr){
+    int n = arr.size();
+    vector<int> hash(n+1, 0);
+
+    for(int i =0; i<n; i++){
+        hash[arr[i]]++;
+    }
+    for(int i =1; i<=n; i++){
+        if(hash[i] == 0)
+        return i;
+    }
+    return -1;
+
+}
+int main(){
+    vector<int> arr = {1,3,2,5};
+    cout<<missing(arr);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int missing(const vector<int> &arr){
+    int n = arr.size() + 1;
+    int sum = 0;
+    for(int i =0; i<n-1; i++){
+        sum += arr[i];
+    }
+    int expectedsum = n*(n+1)/2;
+    return expectedsum - sum;
+
+}
+int main(){
+    vector<int> arr = {1,2,3,5};
+    cout<<missing(arr);
+}
