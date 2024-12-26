@@ -1,0 +1,87 @@
+/triplet sum 
+time complexity N3
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+bool tripletsum(vector<int> arr, int target){
+    int n =arr.size();
+    for(int i =0; i<n-2; i++){
+        for(int j = i+1; j<n-1; j++){
+            for(int k = j+1; k<n; k++){
+              int sum = arr[i] + arr[j] + arr[k];
+              if(sum == target)
+              return true;
+            }
+        }
+    }
+    return false;
+}
+int main(){
+    vector<int> arr = {12,2,4,1,6,9};
+    int target = 11;
+    bool q = tripletsum(arr, target);
+
+    if(q){
+        cout<<"this sum is present"<<endl;
+    }
+    else{
+        cout<<"this sum is not present"<<endl;
+    }
+}
+
+
+TIME COMPLEXITY n2
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+bool tripletsum(vector<int> &arr, int target){
+    int n = arr.size();
+    sort(arr.begin(), arr.end());
+   
+
+    for(int i =0; i<n-2; i++){
+        int l = i+1;
+         int h  = n-1;
+         
+         while(l<h){
+            int sum = arr[i] + arr[l] + arr[h];
+        if(sum == target){
+            cout<<arr[i]<<" "<<arr[l]<<" "<<arr[h]<<endl;
+            return true;
+        }
+        else if(sum < target)
+            l++;
+        
+        else 
+            h--;
+        
+    }
+
+    }
+   
+    return false;
+
+}
+int main(){
+    vector<int> arr = {12,3,4,1,6,9};
+    int target = 27;
+    cout<<tripletsum(arr, target);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
