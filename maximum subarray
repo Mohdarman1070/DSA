@@ -1,0 +1,61 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+int maximumproduct(vector<int> &arr){
+    int n = arr.size();
+    int result = arr[0];
+
+
+    for(int i =0; i<n; i++){
+        int mul = 1;
+        for(int j =i; j<n; j++){
+            mul*= arr[j];
+
+            result = max(result, mul);
+
+        }
+    }
+    return result;
+}
+
+int main(){
+    vector<int> arr = {-2, 6,-3,-10,0,2};
+    cout<<maximumproduct(arr);
+}
+
+
+
+
+
+
+
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+int maximum(const vector<int> &arr){
+
+    int n = arr.size();
+    int sum = 0;
+    int currsum = 0;
+    for(int i=0; i<n; i++){
+        sum+= arr[i];
+
+        currsum = max(sum , currsum);
+
+        if(sum < 0)
+        sum = 0;
+    }
+    return currsum;
+    
+
+
+}
+int main(){
+    vector<int> arr = {2,3,-8,7,-1,2, 3};
+    cout<<maximum(arr);
+     
+}
+
