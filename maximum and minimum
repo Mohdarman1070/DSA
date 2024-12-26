@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+int setmini(int a[], int n){
+    int mini = INT_MAX;
+    for(int i =0; i<n; i++){
+        if(a[i] < mini ){
+            mini = a[i];
+        }
+
+    }
+    return mini;
+
+
+}
+int setmax(int s[], int n){
+    int maxi = INT_MIN;
+    for(int i =0; i<n; i++){
+        if(s[i] > maxi){
+            maxi = s[i];
+        }
+    }
+    return maxi;
+}
+int main(){
+    int arr[] = {101,20,232,455,5};
+    int n =5;
+     int d = setmini(arr, n);
+     cout<<d<<endl;
+
+     int q = setmax(arr, n);
+     cout<<q<<endl;
+}
