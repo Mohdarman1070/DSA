@@ -1,18 +1,51 @@
 #include<iostream>
 #include<vector>
 using namespace std;
-int countoccurence(vector<int> &arr, int target){
-    int res = 0;
-    for(int i =0; i<arr.size(); i++){
-        if(arr[i] == target)
-        res++;
+
+void reversearray(vector<int> &arr){
+    int n = arr.size();
+    vector<int>temp(n);
+    for(int i =0; i<n; i++){
+        temp[i] = arr[n-i-1];
     }
-    return res;
+
+    for(int i =0; i<n; i++){
+        arr[i] = temp[i];
+    }
 }
 int main(){
-    vector<int>arr = {1,2,2,2,2,2,2};
-    int target = 2;
+    vector<int> arr = {1,2,3,4,5};
+    reversearray(arr);
 
-    int  p = countoccurence(arr, 2);
-    cout<<p<<endl;
+    for(int i =0; i<arr.size(); i++){
+        cout<<arr[i]<<" ";
+    }
+}
+
+
+
+
+
+
+
+
+
+#include<iostream>
+#include<vector>
+using namespace std;
+void reverse(vector<int> &arr){
+    int left = 0;
+    int right = arr.size()-1;
+    while(left < right){
+        swap(arr[left], arr[right]);
+        left++;
+        right--;
+    }
+}
+int main(){
+    vector<int> arr = {1,2,3,4,5};
+    reverse(arr);
+    for(int i =0; i<arr.size(); i++){
+        cout<<arr[i]<<" ";
+    }
 }
