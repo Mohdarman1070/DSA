@@ -1,0 +1,69 @@
+time complexity : n
+space complexity : n
+
+#include<iostream>
+#include<unordered_set>
+using namespace std;
+bool subarray(int arr[], int n){
+    unordered_set<int> mul;
+    int sum = 0;
+    for(int i =0; i<n; i++){
+
+        sum+= arr[i];
+
+        if(sum ==0 || mul.find(sum) != mul.end())// set me find karo if present then true warna push karo set me
+        return true;
+        mul.insert(sum);
+
+    }
+    return false;
+}
+int main(){
+    int arr[] = {-3,2,1,1,6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    bool result = subarray(arr, n);
+
+    if(result){
+        cout<<"element found"<<endl;
+    }
+    else{
+        cout<<"element not found"<<endl;
+    }
+}
+
+
+
+
+time complexity : n2
+
+#include<iostream>
+#include<vector>
+using namespace std;
+
+bool subarray(int arr[], int n){
+    
+    for(int i =0; i<n; i++){
+        int sum = 0;
+        for(int j =i; j<n; j++){
+            sum+= arr[j];
+
+
+            if(sum == 0)
+            return true;
+        }
+
+    }
+    return false;
+}
+int main(){
+    int arr [] = {-2,2,-3,1,6};
+    int n = 5;
+    bool  result = subarray(arr, n);
+
+    if(result){
+        cout<<"zero sum found"<<endl;
+    }
+    else{
+     cout<<"zero sum not found"<<endl;
+    }
+}
